@@ -1,0 +1,729 @@
+//====================================================================================================
+.main-screen {
+	min-height: 100vh;
+
+	&__slider {
+	}
+}
+.slider {
+	&__item {
+		min-height: 100vh;
+		position: relative;
+	}
+
+	&__image {
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+
+			z-index: 1;
+		}
+		&::after {
+			// black fading at the bottom
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 36.48%, #000000 100%);
+
+			z-index: 10;
+		}
+	}
+
+	&__content-container {
+		min-height: 100vh;
+		// max-width: 1098px; // 1468-370
+		// max-width: 1468px;
+		width: 75%;
+		@media (max-width: 1300px) {
+			width: 90%;
+		}
+		@media (max-width: $md2+px) {
+			width: 100%;
+		}
+
+		position: relative;
+		z-index: 100;
+		&::after {
+			// transparent trapezoid container
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+			width: 100%;
+			z-index: -1; // 1 was not small enough
+
+			// fullscreen trapezoid
+			border-top: 100vh solid rgba(255, 255, 255, 0.8);
+			border-right: 200px solid transparent; // через transparent border у геом фигур можно урезать углы
+
+			@media (max-width: $md2+px) {
+				border-right: 100px solid transparent;
+			}
+			@media (max-width: $md3+px) {
+				border: 0;
+				background-color: rgba(255, 255, 255, 0.8);
+			}
+		}
+	}
+	&__content {
+		max-width: 1098px; // 1468-370
+		padding: 340px 0px 0px 370px;
+		@media (max-width: 1800px) {
+			max-width: 800px;
+			padding: 340px 0px 0px 150px;
+		}
+		@media (max-width: 1500px) {
+			padding: 240px 0px 0px 100px;
+		}
+		@media (max-width: 1300px) {
+			max-width: 600px;
+		}
+		@media (max-width: $md3+px) {
+			max-width: none;
+			// padding: 150px 10px 0px 10px;
+			padding: 0px 10px 0px 10px;
+			text-align: center;
+
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	&__title {
+		font-size: 40px;
+		line-height: 48px;
+		font-weight: 700;
+		margin: 0px 0px 50px 0px;
+		@media (max-width: 1500px) {
+			margin: 0px 0px 30px 0px;
+		}
+		@media (max-width: $md3+px) {
+			text-align: center;
+			font-size: 30px;
+			line-height: 35px;
+		}
+	}
+
+	&__text {
+		margin: 0px 0px 50px 0px;
+		font-size: 24px;
+		line-height: 30px;
+		text-align: justify;
+		@media (max-width: 1500px) {
+			font-size: 20px;
+		}
+		@media (max-width: $md3+px) {
+			text-align: left;
+			text-align: center;
+			font-size: 14px;
+			line-height: 25px;
+		}
+	}
+
+	&__btn {
+	}
+}
+
+//====================================================================================================
+.catalog {
+	height: 1080px;
+	position: relative;
+
+	@media (max-width: $md2+px) {
+		height: auto;
+	}
+
+	&__bg {
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+
+			z-index: 1;
+		}
+	}
+
+	&__content {
+		position: relative;
+		z-index: 100;
+	}
+
+	&__title {
+		padding: 300px 0px 0px 0px;
+		margin: 0px 0px 35px 0px;
+		@media (max-width: $md3+px) {
+			padding: 150px 0px 0px 0px;
+		}
+		@media (max-width: $md4+px) {
+			padding: 100px 0px 0px 0px;
+		}
+	}
+
+	&__items {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0px -12.5px;
+	}
+
+	&__column {
+		padding: 0px 12.5px;
+		flex: 0 1 50%;
+		margin: 0px 0px 30px 0px;
+		@media (max-width: $md2+px) {
+			flex: 0 1 750px;
+		}
+		@media (max-width: $md4+px) {
+			flex: 1 1 100%;
+			margin: 0px 0px 20px 0px;
+			&:last-child {
+				margin: 0px 0px 50px 0px;
+			}
+		}
+	}
+
+	&__item {
+	}
+
+	&__btn {
+		text-align: right;
+		@media (max-width: $md2+px) {
+			text-align: center;
+		}
+		@media (max-width: $md2+px) {
+			padding: 0px 0px 150px 0px;
+		}
+	}
+}
+
+.item-catalog {
+	padding: 0px 32px;
+	height: 192px;
+	display: flex;
+	align-items: center;
+	background-color: #fff;
+	border-radius: 5px;
+	position: relative; // for hover-mask
+
+	@media (max-width: $md4+px) {
+		height: auto;
+	}
+
+	&__image {
+		flex: 0 0 160px;
+		margin: 0px 50px 0px 0px;
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		@media (max-width: $md4+px) {
+			flex: 0 0 60px;
+			margin: 0px 30px 0px 0px;
+		}
+	}
+
+	&__description {
+		padding: 30px 0px;
+	}
+
+	&__title {
+		font-size: 20px;
+		line-height: 24px;
+		font-weight: 700;
+		margin: 0px 0px 15px 0px;
+		@media (max-width: $md4+px) {
+			font-size: 16px;
+		}
+	}
+
+	&__details {
+		font-size: 18px;
+		line-height: 22px;
+		li {
+			margin: 0px 0px 13px 0px;
+			&:last-child {
+				margin: 0;
+			}
+		}
+		@media (max-width: $md4+px) {
+			font-size: 15px;
+			li {
+				margin: 0px 0px 8px 0px;
+			}
+		}
+	}
+
+	&__hover-mask {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(46, 172, 212, 0.8);
+		backdrop-filter: blur(5px);
+
+		transition: all 0.3s ease 0s;
+		opacity: 0;
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&__action-buttons {
+	}
+
+	.buttons-action {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&__add-to-cart {
+			margin: 0px 20px 0px 0px;
+			padding: 0px 70px 0px 25px;
+			// height: 48px;
+			line-height: 48px;
+			font-size: 16px;
+			font-weight: 700;
+			color: $c_3;
+			border-radius: 50px;
+			box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.15);
+			background: #fff url("../img/icons/catalog/cart.svg") 97px 50% / 29px no-repeat;
+			&:hover {
+				box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.253);
+				background-color: #eee;
+			}
+		}
+
+		&__share {
+			width: 48px;
+			height: 48px;
+			border: 1px solid #ffffff;
+			border-radius: 50%;
+			background: transparent url("../img/icons/catalog/share.svg") 50% 50% / 26px no-repeat;
+			margin: 0px 8.5px 0px 0px;
+			&:hover {
+				box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.253);
+				background-color: rgba(0, 0, 0, 0.198);
+			}
+		}
+
+		&__favorite {
+			width: 48px;
+			height: 48px;
+			border: 1px solid #ffffff;
+			border-radius: 50%;
+			background: transparent url("../img/icons/catalog/heart-regular.svg") 50% 55% / 20px no-repeat;
+			&:hover {
+				box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.253);
+				background-color: rgba(0, 0, 0, 0.198);
+			}
+		}
+	}
+}
+
+//========================================================================================================================================================
+.why {
+	padding: 190px 0px 200px 0px;
+	@media (max-width: $md3+px) {
+		padding: 90px 0px 90px 0px;
+	}
+
+	&__container {
+	}
+
+	&__title {
+		margin: 0px 0px 60px 0px;
+	}
+
+	&__items {
+		display: flex;
+		margin: 0px -10px;
+		@media (max-width: $md3+px) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__column {
+		flex: 0 1 25%;
+		padding: 0px 10px;
+		@media (max-width: $md3+px) {
+			flex: 1 1 100%;
+			margin: 0px 0px 70px 0px;
+		}
+	}
+
+	&__item {
+	}
+}
+
+.item-why {
+	display: flex;
+	flex-direction: column;
+	color: $c_3;
+	@media (max-width: $md3+px) {
+		align-items: center;
+		text-align: center;
+	}
+
+	&__icon {
+		margin: 0px 0px 34px 0px;
+		flex: 0 0 117px;
+		img {
+			max-height: 117px;
+		}
+
+		position: relative; // to abs position overlays
+	}
+	&__icon-overlay {
+		position: absolute;
+		top: 7px;
+		left: 9px;
+	}
+	&__icon-overlay2 {
+		position: absolute;
+		&_star {
+			top: 27px;
+			left: 27px;
+		}
+		&_check {
+			top: 37px;
+			left: 33px;
+		}
+	}
+
+	&__title {
+		margin: 0px 0px 5px 0px;
+		font-size: 27px;
+		line-height: 32px;
+		font-weight: 500;
+	}
+
+	&__text {
+		font-size: 20px;
+		line-height: 24px;
+	}
+}
+//========================================================================================================================================================
+.about {
+	height: 1080px;
+	@media (max-width: 1500px) {
+		height: 800px;
+	}
+	@media (max-width: $md2+px) {
+		height: auto;
+	}
+
+	position: relative;
+	&__image {
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+
+			z-index: 1;
+		}
+	}
+
+	&__content-container {
+		// min-height: 100%;
+		height: 100%;
+		width: 1468px;
+		@media (max-width: 1800px) {
+			width: 75%;
+		}
+		@media (max-width: 1300px) {
+			width: 95%;
+		}
+		@media (max-width: $md2+px) {
+			width: 100%;
+		}
+		@media (max-width: $md3+px) {
+			padding: 100px 0px;
+		}
+
+		position: relative;
+		z-index: 100;
+		&::after {
+			// transparent trapezoid container
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+			width: 100%;
+			z-index: -1; // 1 was not small enough
+
+			// fullscreen trapezoid
+			border-bottom: 1080px solid rgba(255, 255, 255, 0.8);
+			border-right: 200px solid transparent;
+
+			@media (max-width: 1500px) {
+				border-bottom: 800px solid rgba(255, 255, 255, 0.8);
+			}
+			// @media (max-width:$md2+px){
+			// 	border-right: 100px solid transparent;
+			// }
+			@media (max-width: $md2+px) {
+				border: 0; // убираю вообще тк сделал height: auto для подстраивания под размер контента, который будет увеличиваться из-за выстраивания about__numbers в колонку. border-bottom автоматически не рассчитывается, поэтому убрал совсем
+				background-color: rgba(255, 255, 255, 0.8);
+			}
+		}
+	}
+
+	&__content {
+		max-width: 1098px; // 1468-370
+		padding: 330px 0px 100px 370px;
+		@media (max-width: 1800px) {
+			max-width: 800px;
+			padding: 340px 0px 100px 150px;
+		}
+		@media (max-width: 1500px) {
+			padding: 140px 0px 100px 100px;
+		}
+		@media (max-width: 1300px) {
+			max-width: 800px;
+		}
+		@media (max-width: $md2+px) {
+			max-width: 700px;
+		}
+		@media (max-width: $md3+px) {
+			max-width: none;
+			padding: 0px 10px 0px 10px;
+			text-align: center;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	&__title {
+		margin: 0px 0px 30px 0px;
+	}
+
+	&__text {
+		font-size: 20px;
+		line-height: 24px;
+		text-align: justify;
+		color: $c_3;
+		margin: 0px 0px 50px 0px;
+		p {
+			margin: 0px 0px 30px 0px;
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+
+	&__numbers {
+	}
+}
+
+.numbers-about {
+	display: flex;
+	margin: 0px -30px;
+
+	@media (max-width: $md2+px) {
+		flex-direction: column;
+	}
+
+	&__column {
+		padding: 0px 30px;
+
+		// flex: 0 1 33.333%;
+		flex: 1 0 auto; // disallow shrinking - to avoid wrapping in __highlight! (But note that like this, adding extra content to a column will make it big and push other columns far to the side!)
+	}
+
+	&__item {
+		@media (max-width: 1200px) {
+			margin: 0px 0px 30px 0px;
+		}
+	}
+
+	&__highlight {
+		margin: 0px 0px 10px 0px;
+		font-size: 35px;
+		font-weight: 500;
+
+		// gradient text:
+		background-image: linear-gradient($c_1, $c_3);
+		background-size: 100%; // make the gradient cover the full width and height of the text
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		-moz-text-fill-color: transparent;
+		background-color: $c_1; // fallback
+
+		span {
+			font-weight: 700;
+		}
+	}
+
+	&__text {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+		color: $c_3;
+	}
+}
+//========================================================================================================================================================
+.contacts {
+	height: 620px;
+	position: relative;
+
+	&__bg {
+	}
+
+	&__map {
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+
+			z-index: 1;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(255, 255, 255, 0.2);
+
+			z-index: 2;
+		}
+	}
+	&__location-mark {
+		position: absolute;
+		width: 57px;
+		height: 83px;
+		z-index: 3;
+		top: 50%;
+		left: 50%;
+		img {
+			position: relative;
+			left: 300px; // сдвинуть еще относительно родителя который по центру
+
+			// quick fixes for extra large resolutions:
+			@media (min-width: 2400px) {
+				left: 400px;
+			}
+			@media (min-width: 3000px) {
+				left: 500px;
+			}
+		}
+	}
+
+	&__container {
+		position: relative;
+		z-index: 100;
+	}
+
+	&__title {
+		padding: 160px 0px 0px 0px;
+		margin: 0px 0px 40px 0px;
+		@media (max-width: $md3+px) {
+			padding: 100px 0px 0px 0px;
+			margin: 0px 0px 60px 0px;
+		}
+	}
+
+	&__items {
+	}
+
+	&__address {
+	}
+
+	&__phone {
+	}
+}
+.contact-item {
+	margin: 0px 0px 20px 0px;
+	@media (max-width: $md3+px) {
+		margin: 0px 0px 60px 0px;
+	}
+	&:last-child {
+		margin: 0;
+	}
+
+	&__top {
+		display: flex;
+		align-items: center;
+		margin: 0px 0px 10px 0px;
+		@media (max-width: $md3+px) {
+			justify-content: center;
+		}
+	}
+
+	&__icon {
+		margin: 0px 20px 0px 0px;
+		flex: 0 0 30px;
+		img {
+			max-width: 100%;
+		}
+
+		&_phone {
+			margin: 0px 15px 0px 0px;
+
+			flex: 0 0 35px;
+		}
+	}
+
+	&__title {
+		font-weight: 700;
+		font-size: 30px;
+
+		// gradient text:
+		background-image: linear-gradient($c_1, $c_3);
+		background-size: 100%; // make the gradient cover the full width and height of the text
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		-moz-text-fill-color: transparent;
+		background-color: $c_1; // fallback
+	}
+
+	&__content {
+		padding: 0px 0px 0px 50px;
+		font-size: 20px;
+		line-height: 24px;
+		color: $c_3;
+		max-width: 300px;
+		a {
+			color: $c_3;
+		}
+
+		@media (max-width: $md3+px) {
+			padding: 0;
+			margin: 0 auto;
+			text-align: center;
+		}
+	}
+}
+
+//========================================================================================================================================================

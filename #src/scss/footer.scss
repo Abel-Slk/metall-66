@@ -1,0 +1,140 @@
+footer{}
+//====================================================================================================
+.footer {
+	padding: 243px 0px 254px 0px;
+	@media (max-width:$md3+px){
+		padding: 100px 0px 100px 0px;
+	}
+
+	&__content {
+		
+	}
+	&__row {
+		display: flex;
+		margin: 0px -30px;
+		color: $c_3;
+		a{
+			color: $c_3;
+		}
+
+		@media (max-width:$md3+px){
+			flex-wrap: wrap;
+		}
+	}
+
+	&__column {
+		padding: 0px 30px;
+		flex: 0 1 30%;
+		&_narrow{
+			flex: 0 1 10%;
+			@media (max-width:$md3+px){
+				display: none;
+			}
+		}
+
+		@media (max-width:$md3+px){
+			flex: 1 1 100%;
+			text-align: center;
+			margin: 0px 0px 30px 0px;
+			&:last-child{
+				margin: 0;
+			}
+		}
+	}
+
+	&__title {
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 36px;
+		margin: 0px 0px 16px 0px;
+		@media (max-width:$md2+px){
+			font-size: 20px;
+		}
+		@media (max-width:$md3+px){
+			margin: 0px 0px 8px 0px;
+		}
+	}
+
+	&__column-content {
+		font-size: 20px;
+		line-height: 24px;
+		@media (max-width:$md2+px){
+			font-size: 14px;
+		}
+	}
+
+	&__menu {
+		li{
+			margin: 0px 0px 8px 0px;
+			&:last-child{
+				margin: 0;
+			}
+		}
+	}
+
+	&__column-top {
+		margin: 0px 0px 30px 0px;
+	}
+
+	&__phones {
+		a{
+			white-space: nowrap;
+		}
+	}
+
+	&__column-bottom {
+	}
+
+	&__mail {
+	}
+
+	&__social {
+	}
+}
+
+.social {
+	display: flex;
+	@media (max-width:$md3+px){
+		justify-content: center;
+	}
+
+	&__item {
+		width: 67px;
+		height: 67px;
+		border-radius: 50%;
+		margin: 0px 24px 0px 0px;
+		&:last-child{
+			margin: 0;
+		}
+		@media (max-width:$md2+px){
+			width: 37px;
+			height: 37px;
+			background-size: 20px;
+		}
+
+		&_1 {
+			background: url('../img/icons/footer/vk.svg') 50% / 43px no-repeat, linear-gradient(180deg, #009ED0 0%, #2C344D 100%);  // works only when url is first and linear-gradient second
+			&:hover{
+				background: url('../img/icons/footer/vk.svg') 50% / 43px no-repeat, linear-gradient(270deg, #009ED0 0%, #2C344D 100%);
+			}
+		}
+
+		&_2 {
+			background: url('../img/icons/footer/wa.svg') 50% 45% / 42px no-repeat, linear-gradient(180deg, #009ED0 0%, #2C344D 100%);
+			&:hover{
+				background: url('../img/icons/footer/wa.svg') 50% 45% / 42px no-repeat, linear-gradient(270deg, #009ED0 0%, #2C344D 100%);
+			}
+		}
+
+		&_3 {
+			background: url('../img/icons/footer/teleg.svg') 40% 50% / 42px no-repeat, linear-gradient(180deg, #009ED0 0%, #2C344D 100%);
+			&:hover{
+				background: url('../img/icons/footer/teleg.svg') 40% 50% / 42px no-repeat, linear-gradient(270deg, #009ED0 0%, #2C344D 100%);
+			}
+		}
+	}
+}
+
+
+//====================================================================================================
+
