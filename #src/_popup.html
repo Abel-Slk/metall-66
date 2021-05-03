@@ -1,22 +1,30 @@
-<div class="popup popup_popup">
+<div class="popup popup_callback-login">
 	<div class="popup__content">
 		<div class="popup__body">
 			<div class="popup__close"></div>
-		</div>
-	</div>
-</div>
-<div class="popup popup_massagename-message">
-	<div class="popup__content">
-		<div class="popup__body">
-			<div class="popup__close"></div>
-		</div>
-	</div>
-</div>
-<div class="popup popup_video">
-	<div class="popup__content">
-		<div class="popup__body">
-			<div class="popup__close popup__close_video"></div>
-			<div class="popup__video _video"></div>
+
+			<div class="popup__title">Вход</div>
+			<form action="#" class="popup__content form">
+				<div class="form__line">
+					<div class="form__input">
+						<label for="inp1" class="form__label">Почта</label>
+						<input id="inp1" autocomplete="off" type="email" name="form[]" data-error="Поле обязательно для заполнения" data-value="" class="input _req">
+					</div>
+				</div>
+				<div class="form__line">
+					<div class="form__input">
+						<label class="form__label">Пароль</label>
+						<input autocomplete="off" type="password" name="form[]" data-value="" data-error="" class="input _req"/>
+					</div>
+				</div>
+				<div class="form__line">
+					<label class="checkbox">
+						<input data-error="" class="checkbox__input _req" type="checkbox" value="1" name="form[]">
+						<span class="checkbox__text"><span>Я даю свое согласие на обработку персональных данных в соответствии с <a href="">Условиями</a></span></span>
+					</label>
+				</div>
+				<button type="submit" class="form__btn btn">Войти</button>
+			</form>
 		</div>
 	</div>
 </div>

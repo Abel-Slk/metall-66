@@ -39,8 +39,6 @@
 
 	&__content-container {
 		min-height: 100vh;
-		// max-width: 1098px; // 1468-370
-		// max-width: 1468px;
 		width: 75%;
 		@media (max-width: 1300px) {
 			width: 90%;
@@ -89,7 +87,6 @@
 		}
 		@media (max-width: $md3+px) {
 			max-width: none;
-			// padding: 150px 10px 0px 10px;
 			padding: 0px 10px 0px 10px;
 			text-align: center;
 
@@ -296,7 +293,6 @@
 		&__add-to-cart {
 			margin: 0px 20px 0px 0px;
 			padding: 0px 70px 0px 25px;
-			// height: 48px;
 			line-height: 48px;
 			font-size: 16px;
 			font-weight: 700;
@@ -444,7 +440,6 @@
 	}
 
 	&__content-container {
-		// min-height: 100%;
 		height: 100%;
 		width: 1468px;
 		@media (max-width: 1800px) {
@@ -479,9 +474,6 @@
 			@media (max-width: 1500px) {
 				border-bottom: 800px solid rgba(255, 255, 255, 0.8);
 			}
-			// @media (max-width:$md2+px){
-			// 	border-right: 100px solid transparent;
-			// }
 			@media (max-width: $md2+px) {
 				border: 0; // убираю вообще тк сделал height: auto для подстраивания под размер контента, который будет увеличиваться из-за выстраивания about__numbers в колонку. border-bottom автоматически не рассчитывается, поэтому убрал совсем
 				background-color: rgba(255, 255, 255, 0.8);
@@ -495,6 +487,9 @@
 		@media (max-width: 1800px) {
 			max-width: 800px;
 			padding: 340px 0px 100px 150px;
+		}
+		@media (max-width: 1700px){
+			padding: 240px 0px 100px 100px;
 		}
 		@media (max-width: 1500px) {
 			padding: 140px 0px 100px 100px;
@@ -549,8 +544,6 @@
 
 	&__column {
 		padding: 0px 30px;
-
-		// flex: 0 1 33.333%;
 		flex: 1 0 auto; // disallow shrinking - to avoid wrapping in __highlight! (But note that like this, adding extra content to a column will make it big and push other columns far to the side!)
 	}
 
