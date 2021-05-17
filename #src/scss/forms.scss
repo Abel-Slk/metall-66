@@ -49,6 +49,9 @@
 		line-height: 50px;
 		padding: 0px 30px;
 	}
+	@media (max-width: 360px){
+		padding: 0px 15px;
+	}
 	&._fw {
 		width: 100%;
 	}

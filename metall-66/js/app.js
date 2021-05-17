@@ -57,6 +57,16 @@ const isMobile = {
 if (isMobile.any()) {
 	// document.querySelector('html').classList.add('_touch');
 	document.body.classList.add('_touch');
+
+	let menuArrows = document.querySelectorAll('.menu__arrow');
+	if (menuArrows.length > 0) {
+		for (let index = 0; index < menuArrows.length; index++) {
+			const menuArrow = menuArrows[index];
+			menuArrow.addEventListener("click", function (e) {
+				menuArrow.parentElement.classList.toggle('_active'); // к  непосредственному родителю этой стрелочки - то есть li - добавить/убрать класс актив
+			});
+		}
+	}
 }
 else {
 	document.body.classList.add('_pc');
@@ -143,7 +153,7 @@ function menu_close() {
 	menuBody.classList.remove("_active");
 }
 
-let clickableItems = document.querySelectorAll(".menu__link, .menu__list"); // menu__list чтобы меню закрывалось после нажатия на свободном месте
+let clickableItems = document.querySelectorAll(".menu__link, .menu__sub-link"); // убрал .menu__list чтобы не закрывалось при нажитии на стрелку для подменю
 if (clickableItems) {
 	for (let index = 0; index < clickableItems.length; index++) {
 		const el = clickableItems[index];
